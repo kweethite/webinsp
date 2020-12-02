@@ -1,0 +1,24 @@
+import requests
+
+x = True
+print("#Enter 'exit' for exit")
+while x:
+   url = input("Enter your target web page url : ")
+
+
+   if url == "exit":
+      x = False
+      print("exit from my program")
+   else:
+      check = url.startswith("https://")
+
+
+   try:
+        if check == True:
+           result = requests.get(url)
+           print(result.text)
+        else:
+           if check != "exit":
+            print("inavalid url")
+   except:
+     print("network error ")
